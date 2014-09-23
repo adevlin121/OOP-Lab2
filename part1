@@ -1,0 +1,41 @@
+boolean button = false;
+int i, j;
+
+void setup()
+{
+  size(1000, 1000);
+  stroke(255);
+  fill(0);
+}
+
+void draw()
+{
+  if(button == false)
+  {
+    background(150);
+    rect(((width/20)*9), ((height/20)*9), (width/10), (height/10));
+  }
+  else
+  {
+    background(150);
+    fill(random(0, 255), random(0,255), random(0,255));
+    for(i=0; i<20; i++)
+    {
+      for(j=0; j<20; j++)
+      {
+        fill(random(0, 255), random(0,255), random(0,255));
+        rect(((width/20)*i), ((height/20)*j), (width/20), (height/20));
+      }
+    }
+    
+    rect(((width/20)*9), ((height/20)*9), (width/10), (height/10));
+  }
+}
+
+void mousePressed()
+{
+  if((width/20)*11 >= mouseX && mouseX >= (width/20)*9 && (height/20)*11 >= mouseY && mouseY >= (height/20)*9)
+  {
+    button = ! button;
+  }
+}
